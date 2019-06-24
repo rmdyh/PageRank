@@ -1,0 +1,8 @@
+# build
+build
+
+# c++ in windows
+*.exe
+
+# vscode
+.vscode
