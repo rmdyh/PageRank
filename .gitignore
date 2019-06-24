@@ -1,8 +1,9 @@
 # build
 build
 
-# c++ in windows
-*.exe
+# runtime
+*.bin
+result.txt
 
 # vscode
 .vscode
