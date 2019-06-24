@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<direct.h>  
 #include<map>
 #include<set>
 #include<string.h>
@@ -31,8 +30,7 @@ int split_data(int argc,char ** argv){
     else{
         fp=fopen(argv[1],"r");
     }
-    mkdir("./tmp");
-    FILE *matrix=fopen("tmp/matrix.bin","wb"),*index=fopen("tmp/index.bin","wb"),*old=fopen("tmp/old.bin","wb");
+    FILE *matrix=fopen("matrix.bin","wb"),*index=fopen("index.bin","wb"),*old=fopen("old.bin","wb");
     if(fp==NULL||matrix==NULL||index==NULL||old==NULL){
         printf("file cannot open \n");
         return 0;
@@ -151,8 +149,8 @@ int split_data(int argc,char ** argv){
 }
 
 int solve(){
-    FILE *matrix=fopen("tmp/matrix.bin","rb");
-    FILE *old=fopen("tmp/old.bin","rb+"),*_new=fopen("tmp/new.bin","wb+");
+    FILE *matrix=fopen("matrix.bin","rb");
+    FILE *old=fopen("old.bin","rb+"),*_new=fopen("new.bin","wb+");
     fseek(old,0,SEEK_END);
     int item_size=ftell(old)/sizeof(double);
     int t=0;
@@ -220,7 +218,7 @@ struct cmp{
 std::priority_queue<std::pair<int,double>,std::vector<std::pair<int,double> >,cmp> p;
 
 int output(){
-    FILE *index=fopen("tmp/index.bin","rb"),*old=fopen("tmp/old.bin","rb");
+    FILE *index=fopen("index.bin","rb"),*old=fopen("old.bin","rb");
     FILE *result=fopen("result.txt","w");
     double value;
     int id=0;
