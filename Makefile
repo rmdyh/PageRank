@@ -1,14 +1,15 @@
 DataFile?=WikiData.txt
 
-pagerank:
-	mkdir build
+pagerank: source/main.cpp source/pagerank.h
+	-mkdir build
 	g++ -o ./build/pagerank ./source/main.cpp -std=c++11
 
 .PHONY: clean run
 
-run: ./build/pagerank
+run: pagerank
 	./build/pagerank ./dataset/$(DataFile);
 
 clean:
 	rm -rf ./build
+	rm *.bin
 
