@@ -61,3 +61,14 @@
 30 0.3
 ```
 表示编号为30的网页的pagerank分值为0.3.
+
+输出文件名为result.txt
+
+## 使用make
+
+在目录下使用make命令可以编译出可执行文件，make run命令可以编译并运行可执行文件。
+
+make run命令可以添加参数，以指示使用哪个数据集，数据集需要放在dataset文件夹中。例如，使用mydata.txt作为输入，可以在工程根目录下使用：
+```
+make DataFile=mydata.txt run
+```

@@ -225,8 +225,8 @@ int output(){
     while(fread(&value,sizeof(double),1,old)){
         p.push(std::make_pair(++id,value));
     }
-    id=0;
-    while(++id<=100){
+    id=id>100?100:id;
+    while(--id>=0){
         std::pair<int,double> tmp=p.top();
         p.pop();
         int web_id;
