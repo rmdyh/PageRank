@@ -1,9 +1,9 @@
-#include<stdio.h>
-#include<map>
-#include<set>
-#include<string.h>
-#include<math.h>
-#include<queue>
+#include <stdio.h>
+#include <map>
+#include <set>
+#include <string.h>
+#include <math.h>
+#include <queue>
 #include <assert.h>
 
 #include"pagerank.h"
@@ -225,14 +225,14 @@ int output(){
     while(fread(&value,sizeof(double),1,old)){
         p.push(std::make_pair(++id,value));
     }
-    id=id>100?100:id;
+    id=id>TOP?TOP:id;
     while(--id>=0){
         std::pair<int,double> tmp=p.top();
         p.pop();
         int web_id;
         fseek(index,(tmp.first-1)*sizeof(int),SEEK_SET);
         fread(&web_id,sizeof(int),1,index);
-        fprintf(result,"%d\t%.8f\n",web_id,tmp.second);
+        fprintf(result,"%d\t%.10f\n",web_id,tmp.second);
     }
     return 1;
 }

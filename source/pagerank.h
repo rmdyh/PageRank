@@ -2,9 +2,10 @@
 #define _PAGERANK_
 #include<stdint.h>
 
-#define BLOCK_SIZE 2000
-#define EPSILON 1e-3
+#define BLOCK_SIZE 10000
+#define EPSILON 1e-10
 #define BETA 0.85
+#define TOP 100
 
 typedef struct{
     long pointer;
