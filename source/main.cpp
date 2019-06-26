@@ -35,7 +35,7 @@ int split_data(int argc,char ** argv){
         printf("file cannot open \n");
         return 0;
     }
-    int src,dest;
+    int src,dest,t;
     id2loc.clear();
     /*map web_id to its order in old.bin*/
     while(fscanf(fp,"%d%d",&src,&dest)!=EOF){
@@ -47,7 +47,9 @@ int split_data(int argc,char ** argv){
             id2loc[dest]=id2loc.size();
             fwrite(&dest,sizeof(int),1,index);
         }
+        ++t;
     }
+    printf("Read file successfully. Has %d websites and %d records\n",id2loc.size(),t);
     double init=1.0/id2loc.size();
     nodeset.clear();
     allnodeset.clear();
@@ -219,6 +221,7 @@ int solve(){
             assert(fwrite(now_value,sizeof(double),now_size,old));
             fflush(old);
         }
+        printf("iteration with %f difference\n",offset);
         if(offset<EPSILON){
             /* convergence */
             break;
