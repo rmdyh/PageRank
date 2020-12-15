@@ -70,5 +70,5 @@
 
 make run命令可以添加参数，以指示使用哪个数据集，数据集需要放在dataset文件夹中。例如，使用mydata.txt作为输入，可以在工程根目录下使用：
 ```
-make DataFile=mydata.txt run
+make run DataFile=mydata.txt
 ```

@@ -4,6 +4,7 @@ build
 # runtime
 *.bin
 result.txt
+log.txt
 
 # vscode
 .vscode
