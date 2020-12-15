@@ -11,5 +11,3 @@ run: pagerank
 
 clean:
 	rm -rf ./build
-	rm *.bin
-
